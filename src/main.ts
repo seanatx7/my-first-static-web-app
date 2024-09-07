@@ -1,12 +1,21 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Component } from '@angular/core';
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
+@Component({
+  selector: 'app-customer-info',
+  templateUrl: './customer-info.component.html',
+  styleUrls: ['./customer-info.component.css']
+})
+export class CustomerInfoComponent {
+  customer = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    question: ''
+  };
 
-if (environment.production) {
-  enableProdMode();
+  onSubmit() {
+    console.log(this.customer);
+    // Here you would typically send this data to a service or API
+    // For now, we'll just log it to the console
+  }
 }
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
